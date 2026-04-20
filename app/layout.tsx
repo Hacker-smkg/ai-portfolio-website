@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Cursor from "@/components/Cursor";
 
 export const metadata: Metadata = {
   title: "AI Portfolio | Soumya Ganguly",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <Cursor />
         {children}
       </body>
     </html>
