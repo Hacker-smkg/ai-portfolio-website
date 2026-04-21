@@ -2,6 +2,8 @@
 
 A highly interactive, physics-driven Next.js portfolio showcasing expertise in Generative AI, microservices, and modern frontend tools.
 
+**🚀 Live Demo:** [View Deployment on Vercel](https://ai-portfolio-website-git-main-hackersmkgs-projects.vercel.app)
+
 ## Features
 
 - **Quantum UI Cursor**: A custom glowing orb built with Framer Motion that trails the mouse and magnetically snaps to interactive elements, featuring dynamic blending modes.
