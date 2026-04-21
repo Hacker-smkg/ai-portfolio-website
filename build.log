@@ -1,0 +1,39 @@
+
+> ai-portfolio-website@1.0.0 dev
+> next dev
+
+ ⚠ `images.domains` is deprecated in favor of `images.remotePatterns`. Please update next.config.js to protect your application from malicious users.
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/soumyaganguly01/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/soumyaganguly01/.gemini/antigravity/scratch/ai-portfolio-website/package-lock.json
+
+   ▲ Next.js 16.0.1 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.100.32:3000
+
+ ✓ Starting...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+ ✓ Ready in 504ms
+(node:88052) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+ GET / 200 in 2.0s (compile: 1852ms, render: 169ms)
+ GET / 200 in 1217ms (compile: 714ms, render: 504ms)
+ GET / 200 in 554ms (compile: 299ms, render: 255ms)
+(node:88052) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:88052) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/soumyaganguly01/.gemini/antigravity/scratch/ai-portfolio-website/tailwind.config.ts?id=1776717886027 is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/soumyaganguly01/.gemini/antigravity/scratch/ai-portfolio-website/package.json.
+Error: Turbopack build failed with 1 errors:
+./.gemini/antigravity/scratch/ai-portfolio-website/app
+Error: Next.js inferred your workspace root, but it may not be correct.
+    We couldn't find the Next.js package (next/package.json) from the project directory: /Users/soumyaganguly01/.gemini/antigravity/scratch/ai-portfolio-website/app
+     To fix this, set turbopack.root in your Next.js config, or ensure the Next.js package is resolvable from this directory.
+    Note: For security and performance reasons, files outside of the project directory will not be compiled.
+    See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+
+    at ignore-listed frames
+[?25h
