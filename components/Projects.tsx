@@ -4,19 +4,50 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 
-// Real Data
-const projects = [
+type Project = {
+  title: string;
+  description: string;
+  tags: string[];
+  link: string;
+  icon: string;
+  visibility?: 'Private repo';
+};
+
+const projects: Project[] = [
   {
-    title: 'Medicine_shop (GenAI Pharmacy)',
-    description: 'A full-stack MERN & FastAPI microservice application featuring a LangChain + GPT-3.5 symptom-checking chatbot, Docker orchestration, and CI/CD pipelines.',
-    tags: ['React', 'Node.js', 'FastAPI', 'OpenAI', 'Docker'],
-    link: 'https://github.com/Hacker-smkg/Medicine_shop',
+    title: 'MediShop AI Medicine Store',
+    description: 'A modern medicine e-commerce platform with JWT auth, product catalogue, cart and order flows, plus MediBot for symptom-based health assistance through a FastAPI AI service.',
+    tags: ['React', 'Node.js', 'MongoDB', 'FastAPI', 'Groq'],
+    link: 'https://github.com/Hacker-smkg/Gen-AI-Medicine-shop',
     icon: '💊',
   },
   {
-    title: 'AI Multi-Agent Swarm E-Commerce',
-    description: 'A scalable automation pipeline deploying autonomous agents for marketing, inventory, and strategy analysis using n8n and Python.',
-    tags: ['Python', 'n8n', 'LLMs', 'Agentic Workflow'],
+    title: 'Fitlife AI Coach',
+    description: 'An AI-native fitness platform with deep onboarding, adaptive workout plans, FitBot guidance, admin workout management, subscriptions, and a deployed React/Node/Mongo production split.',
+    tags: ['React', 'Node.js', 'MongoDB', 'AI Plans', 'Render'],
+    link: 'https://github.com/Hacker-smkg/Fitlife',
+    icon: '🏋️',
+  },
+  {
+    title: 'GMap Lead Engine',
+    description: 'A private lead-generation engine for medical, fitness, and business niches with Google Places geo-search, rating and website filters, CSV export, analytics, status tracking, and AI outreach.',
+    tags: ['React', 'Vite', 'FastAPI', 'Google Places', 'Claude'],
+    link: 'https://github.com/Hacker-smkg/gmap-lead-engine',
+    icon: '📍',
+    visibility: 'Private repo',
+  },
+  {
+    title: 'LinkVault',
+    description: 'A private web-first and mobile-first resource organizer for saving links with categories, descriptions, tags, favorites, search, local-first IndexedDB persistence, and shared monorepo packages.',
+    tags: ['Next.js', 'Expo', 'TypeScript', 'IndexedDB', 'Monorepo'],
+    link: 'https://github.com/Hacker-smkg/linkvault',
+    icon: '🔗',
+    visibility: 'Private repo',
+  },
+  {
+    title: 'E-commerce AI Agents',
+    description: 'A multi-agent AI system for scaling e-commerce operations through n8n workflows and FastAPI agents for analytics, operations, marketing, and strategy recommendations.',
+    tags: ['Python', 'FastAPI', 'n8n', 'LLMs', 'Automation'],
     link: 'https://github.com/Hacker-smkg/ecommerce-ai-agents',
     icon: '🤖',
   },
@@ -28,23 +59,16 @@ const projects = [
     icon: '✨',
   },
   {
-    title: 'Sentiment Analyzer NLP',
-    description: 'A machine learning repository focused on testing and benchmarking NLP models for sentiment analysis on real-world text data.',
-    tags: ['Python', 'NLP', 'Machine Learning', 'Data Science'],
-    link: 'https://github.com/Hacker-smkg/Test-Ai-repo',
+    title: 'SentiOCR',
+    description: 'A full-stack AI platform that extracts text from handwritten images with OpenCV-preprocessed OCR, then classifies emotional tone using weighted fuzzy sentiment scoring.',
+    tags: ['Python', 'FastAPI', 'OCR', 'OpenCV', 'React'],
+    link: 'https://github.com/Hacker-smkg/SentiOCR',
     icon: '🧠',
-  },
-  {
-    title: 'Dr. H Ganguly Digital Platform',
-    description: 'A bespoke platform developed for a medical professional, focusing on smooth UX and fast client load times.',
-    tags: ['Web Development', 'UI/UX', 'Frontend'],
-    link: 'https://github.com/Hacker-smkg/Dr.-H-Ganguly',
-    icon: '🩺',
   },
 ];
 
 // Interactive 3D Tilt Card Component
-function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -95,12 +119,19 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           <div className="mb-4 text-5xl" style={{ transform: 'translateZ(30px)' }}>
             {project.icon}
           </div>
-          <h3 
-            className="mb-3 text-2xl font-bold transition-all group-hover:text-cyan-400"
+          <div
+            className="mb-3 flex flex-wrap items-center gap-2"
             style={{ transform: 'translateZ(20px)' }}
           >
-            {project.title}
-          </h3>
+            <h3 className="text-2xl font-bold transition-all group-hover:text-cyan-400">
+              {project.title}
+            </h3>
+            {project.visibility && (
+              <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-amber-200">
+                {project.visibility}
+              </span>
+            )}
+          </div>
           <p 
             className="mb-6 text-gray-400 leading-relaxed"
             style={{ transform: 'translateZ(10px)' }}
