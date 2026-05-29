@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "../node_modules/tailwindcss/index.css";
 @config "../tailwind.config.ts";
 
 :root {
@@ -11,6 +11,10 @@
     --background: #09090b;
     --foreground: #ededed;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -96,7 +100,88 @@ body {
   /* Class used by the custom cursor to increase orb size */
 }
 
+.scanline-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.06), transparent 22%, rgba(139, 92, 246, 0.05), transparent 54%);
+  background-size: 100% 5px, 240px 100%;
+  mix-blend-mode: screen;
+}
+
+.hologram-ring {
+  animation: hologram-spin 18s linear infinite;
+  box-shadow: 0 0 36px rgba(34, 211, 238, 0.18);
+}
+
+.hologram-ring::before,
+.hologram-ring::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  background: #67e8f9;
+  box-shadow: 0 0 18px rgba(103, 232, 249, 0.85);
+}
+
+.hologram-ring::before {
+  width: 7px;
+  height: 7px;
+  left: 18%;
+  top: 10%;
+}
+
+.hologram-ring::after {
+  width: 5px;
+  height: 5px;
+  bottom: 13%;
+  right: 18%;
+}
+
+.hologram-ring-delay {
+  animation-duration: 25s;
+  animation-direction: reverse;
+}
+
+.project-constellation {
+  position: relative;
+}
+
+.project-constellation::before {
+  content: "";
+  position: absolute;
+  inset: 1.5rem;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(34, 211, 238, 0.12), transparent 45%, rgba(16, 185, 129, 0.12)),
+    linear-gradient(rgba(139, 92, 246, 0.12), transparent 54%);
+  filter: blur(34px);
+  opacity: 0.5;
+}
+
+@keyframes hologram-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
 /* Smooth transitions */
 * {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
 }
